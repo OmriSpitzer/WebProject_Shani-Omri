@@ -2,11 +2,28 @@ from flask import Flask, render_template
 
 app = Flask(__name__, static_folder='static')  # static_folder -> media folder to use in app
 
+schedule_data =[
+    ["", "יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי"],
+    ["8:30 - 9:20", "", "", "", "", "", ""],
+    ["9:30 - 10:20", "", "", "", "", "", ""],
+    ["10:30 - 11:20", "", "", "", "", "", ""],
+    ["11:30 - 12:20", "", "", "", "", "", ""],
+    ["הפסקה"],
+    ["12:50 - 13:40", "", "", "", "", "", ""],
+    ["13:50 - 14:40", "", "", "", "", "", ""],
+    ["14:50 - 15:40", "", "", "", "", "", ""],
+    ["15:50 - 16:40", "", "", "", "", "", ""],
+    ["16:50 - 17:40", "", "", "", "", "", ""],
+    ["17:50 - 18:40", "", "", "", "", "", ""],
+    ["18:50 - 19:40", "", "", "", "", "", ""],
+    ["19:50 - 20:40", "", "", "", "", "", ""],
+]
+
 
 @app.route('/')  # defining route to web app
 def homepage():
-    return render_template("homepage.html")
+    return render_template("homepage.html", schedule_data=schedule_data)
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=True, port=5002)
+    app.run(host='127.0.0.1', debug=True, port=5003)
